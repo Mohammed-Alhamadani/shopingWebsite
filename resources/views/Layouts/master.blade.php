@@ -8,30 +8,29 @@
 
     <!-- title -->
     <title>Insights</title>
-
     <!-- favicon -->
 
 
-    <link rel="" type="image/png" href="assets/img/favicon.png" style="display: none;">
+    <link rel="" type="image/png" href="{{asset ('assets/img/favicon.png') }}" style="display: none;">
     <!-- google font -->
     <link href=" https://fonts.googleapis.com/css?family=Open+Sans:300,400,700" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Poppins:400,700&display=swap" rel="stylesheet">
     <!-- fontawesome -->
-    <link rel="stylesheet" href="assets/css/all.min.css">
+    <link rel="stylesheet" href="{{ asset('assets/css/all.min.css') }}">
     <!-- bootstrap -->
-    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{{ asset('assets/bootstrap/css/bootstrap.min.css') }}">
     <!-- owl carousel -->
-    <link rel="stylesheet" href="assets/css/owl.carousel.css">
+    <link rel="stylesheet" href="{{asset('assets/css/owl.carousel.css') }}">
     <!-- magnific popup -->
-    <link rel="stylesheet" href="assets/css/magnific-popup.css">
+    <link rel="stylesheet" href="{{ asset('assets/css/magnific-popup.css') }}">
     <!-- animate css -->
-    <link rel="stylesheet" href="assets/css/animate.css">
+    <link rel="stylesheet" href="{{asset ('assets/css/animate.css') }}">
     <!-- mean menu css -->
-    <link rel="stylesheet" href="assets/css/meanmenu.min.css">
+    <link rel="stylesheet" href="{{asset ('assets/css/meanmenu.min.css') }}">
     <!-- main style -->
-    <link rel="stylesheet" href="assets/css/main.css">
+    <link rel="stylesheet" href="{{asset ('assets/css/main.css') }}">
     <!-- responsive -->
-    <link rel="stylesheet" href="assets/css/responsive.css">
+    <link rel="stylesheet" href="{{asset ('assets/css/responsive.css') }}">
 
 </head>
 
@@ -49,11 +48,11 @@
     <div class="top-header-area" id="sticker">
         <div class="container">
             <div class="row">
-                <div class="col-lg-12 col-sm-12 text-center">
+                <div class="text-center col-lg-12 col-sm-12">
                     <div class="main-menu-wrap">
                         <!-- logo -->
                         <div class="site-logo">
-                            <a href="/">
+                            <a href="{{asset ('/') }}">
                                 {{-- <img src="assets/img/logo.png" alt=""> --}}
                                 <h1 class="orange-text">Insights</h1>
                             </a>
@@ -63,18 +62,14 @@
                         <!-- menu start -->
                         <nav class="main-menu">
                             <ul>
-                                <li class="current-list-item"><a href="#">Home</a>
-                                    <ul class="sub-menu">
-                                        <li><a href="/">Static Home</a></li>
-                                        <li><a href="/">Slider Home</a></li>
-                                    </ul>
+                                <li class="current-list-item"><a href="/">Home</a>
                                 </li>
-                                <li><a href="/product">Product</a></li>
-                                <li><a href="/category">Category</a></li>
+                                <li><a href="{{asset ('/product') }}">Product</a></li>
+                                <li><a href="{{asset ('/category') }}">Category</a></li>
                                 <li><a href="#">Pages</a>
                                     <ul class="sub-menu">
                                         <li><a href="404.html">404 page</a></li>
-                                        <li><a href="/product">Product</a></li>
+                                        <li><a href="{{asset ('/product') }}">Product</a></li>
                                         <li><a href="/category">Category</a></li>
                                         <li><a href="checkout.html">Check Out</a></li>
                                         <li><a href="contact.html">Contact</a></li>
@@ -161,7 +156,7 @@
         <div class="single-homepage-slider homepage-bg-2">
             <div class="container">
                 <div class="row">
-                    <div class="col-lg-10 offset-lg-1 text-center">
+                    <div class="text-center col-lg-10 offset-lg-1">
                         <div class="hero-text">
                             <div class="hero-text-tablecell">
                                 <p class="subtitle">Fresh Everyday</p>
@@ -180,7 +175,7 @@
         <div class="single-homepage-slider homepage-bg-3">
             <div class="container">
                 <div class="row">
-                    <div class="col-lg-10 offset-lg-1 text-right">
+                    <div class="text-right col-lg-10 offset-lg-1">
                         <div class="hero-text">
                             <div class="hero-text-tablecell">
                                 <p class="subtitle">Mega Sale Going On!</p>
@@ -275,7 +270,7 @@
                         Distributed By - <a href="https://themewagon.com/">Themewagon</a>
                     </p>
                 </div>
-                <div class="col-lg-6 text-right col-md-12">
+                <div class="text-right col-lg-6 col-md-12">
                     <div class="social-icons">
                         <ul>
                             <li><a href="#" target="_blank"><i class="fab fa-facebook-f"></i></a></li>
@@ -292,25 +287,25 @@
     <!-- end copyright -->
 
     <!-- jquery -->
-    <script src="assets/js/jquery-1.11.3.min.js"></script>
+    <script src="{{asset ('assets/js/jquery-1.11.3.min.js') }}"></script>
     <!-- bootstrap -->
-    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+    <script src="{{asset ('assets/bootstrap/js/bootstrap.min.js') }}"></script>
     <!-- count down -->
-    <script src="assets/js/jquery.countdown.js"></script>
+    <script src="{{asset ('assets/js/jquery.countdown.js') }}"></script>
     <!-- isotope -->
-    <script src="assets/js/jquery.isotope-3.0.6.min.js"></script>
+    <script src="{{asset ('assets/js/jquery.isotope-3.0.6.min.js') }}"></script>
     <!-- waypoints -->
-    <script src="assets/js/waypoints.js"></script>
+    <script src="{{asset ('assets/js/waypoints.js') }}"></script>
     <!-- owl carousel -->
-    <script src="assets/js/owl.carousel.min.js"></script>
+    <script src="{{asset ('assets/js/owl.carousel.min.js') }}"></script>
     <!-- magnific popup -->
-    <script src="assets/js/jquery.magnific-popup.min.js"></script>
+    <script src="{{asset ('assets/js/jquery.magnific-popup.min.js') }}"></script>
     <!-- mean menu -->
-    <script src="assets/js/jquery.meanmenu.min.js"></script>
+    <script src="{{asset ('assets/js/jquery.meanmenu.min.js') }}"></script>
     <!-- sticker js -->
-    <script src="assets/js/sticker.js"></script>
+    <script src="{{asset ('assets/js/sticker.js') }}"></script>
     <!-- main js -->
-    <script src="assets/js/main.js"></script>
+    <script src="{{asset ('assets/js/main.js') }}"></script>
 
 </body>
 
