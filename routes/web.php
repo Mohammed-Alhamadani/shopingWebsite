@@ -1,26 +1,26 @@
 <?php
 
+use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\ProductController;
 use App\Models\Category;
+use App\Models\Product;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\DB;
 
-Route::get('/', function () {
-    $result= Category::all();
-
-    return view('welcome',['categories'=>$result]);
-});
+Route::get('/',[CategoryController::class,'index']);
 
 
 Route::get('/product/{catId?}', function ($catId=null) {
 
-    if($catId==null) {
-        $result= DB::table('Products')->get();
+    if($catId) {
+        $result= Product::where('category_id',$catId)->get();
+        return view('product',['products'=>$result]);
     }
     else{
 
-        $result= DB::table('Products')->where('category_id',$catId)->get();
+        $result= Product::all();
+        return view('product',['products'=>$result]);
     }
-    return view('product',['products'=>$result]);
 });
 // Route::get('/product', function () {
 //     $result= DB::table('Products')->get();
@@ -29,7 +29,11 @@ Route::get('/product/{catId?}', function ($catId=null) {
 
 
 Route::get('/category', function () {
-
-
-    return view('category');
+    $categories= Category::all();
+    $product= Product::all();
+    return view('category',['products'=>$product,'categories'=>$categories]);
 });
+
+
+Route::get('/addproduct',[ProductController::class,'AddProduct']);
+Route::post('/storeproduct',[ProductController::class,'storeProduct']);
