@@ -16,14 +16,17 @@
             @foreach ($categories as $item)
 
             <div class="text-center col-lg-4 col-md-6">
-                <div class="single-product-item">
-                    <div class="product-image">
-                        <a href="/product/{{ $item->id }}"><img src="{{asset($item -> imagepath)}}"
-                                style="min-height: 250px ! important; max-height:250px !important;" alt=""></a>
+                <a href="/product/{{ $item->id }}">
+                    <div class="single-product-item">
+
+                        <div class="product-image">
+                            <img src="{{asset($item -> imagepath)}}"
+                                style="min-height: 250px ! important; max-height:250px !important;" alt="">
+                        </div>
+                        <h3>{{$item ->name}}</h3>
+                        <p>{{$item ->description}}</p>
                     </div>
-                    <h3>{{$item ->name}}</h3>
-                    <p>{{$item ->description}}</p>
-                </div>
+                </a>
             </div>
             @endforeach
 

@@ -36,4 +36,47 @@ class ProductController extends Controller
         return redirect('/product');
 
     }
+
+    public function show ($catId=null) {
+
+        if($catId) {
+            $result= Product::where('category_id',$catId)->get();
+            return view('product',['products'=>$result]);
+        }
+        else{
+
+            $result= Product::all();
+            return view('product',['products'=>$result]);
+        }
+    }
+
+    public function destroy($id){
+
+        $product=Product::find($id);
+
+        $product->delete();
+
+        return redirect('/product');
+
+    }
+
+    public function editProduct($id){
+        $categories=Category::all();
+        $product=Product::find($id);
+
+        return view('Products.editproduct',['product'=>$product,'categories'=>$categories]);
+
+    }
+
+    public function updateProduct($id){
+        $product=Product::find($id);
+        $product->update();
+        return redirect('/product');
+
+    }
+
+    public function showSingleProduct($id){
+        $SingleProduct=Product::find($id);
+        return view('Products.singlePage',['singleProduct'=>$SingleProduct]);
+    }
 }

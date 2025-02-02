@@ -9,23 +9,14 @@ use Illuminate\Support\Facades\DB;
 
 Route::get('/',[CategoryController::class,'index']);
 
+Route::get('/singleproduct/{id}',[ProductController::class,'showSingleProduct']);
 
-Route::get('/product/{catId?}', function ($catId=null) {
+Route::get('/product/{catId?}',[ProductController::class,'show']);
 
-    if($catId) {
-        $result= Product::where('category_id',$catId)->get();
-        return view('product',['products'=>$result]);
-    }
-    else{
 
-        $result= Product::all();
-        return view('product',['products'=>$result]);
-    }
-});
-// Route::get('/product', function () {
-//     $result= DB::table('Products')->get();
-//     return view('product',['products'=>$result]);
-// });
+Route::get('/deleteproduct/{id}',[ProductController::class,'destroy']);
+Route::get('/editproduct/{id}',[ProductController::class,'editProduct']);
+Route::PUT('/updateproduct/{id}',[ProductController::class,'updateProduct']);
 
 
 Route::get('/category', function () {

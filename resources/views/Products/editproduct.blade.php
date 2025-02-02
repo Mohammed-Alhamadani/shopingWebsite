@@ -2,6 +2,7 @@
 @section('content')
 
 
+
 <style>
     button {
         background-color: #f28123;
@@ -25,12 +26,13 @@
         color: #f28123;
     }
 </style>
+
 <div class="product-section mt-150 mb-150">
     <div class="container">
         <div class="row">
             <div class="text-center col-lg-8 offset-lg-2">
                 <div class="section-title">
-                    <h3><span class="orange-text">Add</span> Products</h3>
+                    <h3><span class="orange-text">Edit</span> Products</h3>
                 </div>
             </div>
         </div>
@@ -42,11 +44,12 @@
                 </div>
                 <div id="form_status"></div>
                 <div class="contact-form">
-                    <form method="POST" action="/storeproduct" id="fruitkha-contact">
+                    <form method="POST" action="/updateproduct" id="fruitkha-contact">
                         @csrf
+                        @method('PUT')
                         <p>
                             <input type="text" required style="width: 100%" placeholder="Name" name="name" id="name"
-                                value="{{ old('name') }}">
+                                value="{{ $product->name }}">
                             <span class="text-danger">
                                 @error('name')
                                 {{ $message }}
@@ -56,7 +59,7 @@
                         </p>
                         <p style="display: flex">
                             <input type="number" required style="width: 50%" class="mr-4" placeholder="Price"
-                                name="price" id="price" value="{{ old('price') }}">
+                                name="price" id="price" value="{{ $product->price }}">
                             <span class="text-danger">
                                 @error('price')
                                 {{ $message }}
@@ -64,7 +67,7 @@
                                 @enderror
                             </span>
                             <input type="number" required style="width: 50%" placeholder="Quantity" name="quantity"
-                                id="quantity" value="{{ old('quantity') }}">
+                                id="quantity" value="{{ $product->quantity }}">
                             <span class="text-danger">
                                 @error('quantity')
                                 {{ $message }}
@@ -76,13 +79,18 @@
                         <p>
                             <select class="form-control" name="category_id" id="category_id">
                                 @foreach ($categories as $item)
+
+                                @if ($item->id == $product->category_id)
+                                <option value="{{ $item->id }}" selected>{{ $item->name }}</option>
+                                @else
                                 <option value="{{ $item->id }}">{{ $item->name }}</option>
+                                @endif
                                 @endforeach
                             </select>
                         </p>
                         <p><textarea required name="description" id="description" cols="30" rows="10"
                                 placeholder="Description">
-                                {{ old('description') }}
+                                {{ $product->description }}
                             </textarea>
                             <span class="text-danger">
                                 @error('description')
@@ -91,7 +99,8 @@
                                 @enderror
                             </span>
                         </p>
-                        <p><input type="submit" value="Add"><button onclick="window.location.href='/'">Cancel</button>
+                        <p><input type="submit" value="Update"><button
+                                onclick="window.location.href='/'">Cancel</button>
                         </p>
                     </form>
                 </div>

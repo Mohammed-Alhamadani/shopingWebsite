@@ -66,6 +66,7 @@
                                 </li>
                                 <li><a href="{{asset ('/product') }}">Product</a></li>
                                 <li><a href="{{asset ('/category') }}">Category</a></li>
+                                <li><a href="{{asset ('/addproduct') }}">Add Product</a></li>
                                 <li><a href="#">Pages</a>
                                     <ul class="sub-menu">
                                         <li><a href="404.html">404 page</a></li>
@@ -265,19 +266,25 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-6 col-md-12">
-                    <p>Copyrights &copy; 2019 - <a href="https://imransdesign.com/">Imran Hossain</a>, All Rights
+                    {{-- <p>Copyrights &copy; 2019 - <a href="https://imransdesign.com/">Imran Hossain</a>, All Rights
                         Reserved.<br>
                         Distributed By - <a href="https://themewagon.com/">Themewagon</a>
+                    </p> --}}
+                    <p>Copyrights &copy; 2025 - Mohammed Alhamadani, All Rights
+                        Reserved.
                     </p>
                 </div>
                 <div class="text-right col-lg-6 col-md-12">
                     <div class="social-icons">
                         <ul>
-                            <li><a href="#" target="_blank"><i class="fab fa-facebook-f"></i></a></li>
-                            <li><a href="#" target="_blank"><i class="fab fa-twitter"></i></a></li>
-                            <li><a href="#" target="_blank"><i class="fab fa-instagram"></i></a></li>
-                            <li><a href="#" target="_blank"><i class="fab fa-linkedin"></i></a></li>
-                            <li><a href="#" target="_blank"><i class="fab fa-dribbble"></i></a></li>
+                            <li><a href="https://www.facebook.com/mohamed.mohamedalhamdani" target="_blank"><i
+                                        class="fab fa-facebook-f"></i></a></li>
+                            <li><a href="https://x.com/MbmwBasil7" target="_blank"><i class="fab fa-twitter"></i></a>
+                            </li>
+                            <li><a href="https://www.instagram.com/mohammed_alhamadani7/" target="_blank"><i
+                                        class="fab fa-instagram"></i></a></li>
+                            <li><a href="https://www.linkedin.com/in/mohammed-alhamadani-108910109/" target="_blank"><i
+                                        class="fab fa-linkedin"></i></a></li>
                         </ul>
                     </div>
                 </div>
