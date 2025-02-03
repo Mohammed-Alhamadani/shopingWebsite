@@ -16,7 +16,7 @@
             @foreach ($categories as $item)
 
             <div class="text-center col-lg-4 col-md-6">
-                <a href="/product/{{ $item->id }}">
+                <a href="/category/{{ $item->id }}">
                     <div class="single-product-item">
 
                         <div class="product-image">

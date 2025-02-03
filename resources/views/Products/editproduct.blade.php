@@ -44,7 +44,7 @@
                 </div>
                 <div id="form_status"></div>
                 <div class="contact-form">
-                    <form method="POST" action="/updateproduct" id="fruitkha-contact">
+                    <form method="POST" action="/updateproduct/{{ $product->id }}">
                         @csrf
                         @method('PUT')
                         <p>

@@ -62,15 +62,15 @@ class ProductController extends Controller
 
     public function editProduct($id){
         $categories=Category::all();
-        $product=Product::find($id);
+        $product=Product::findOrFail($id);
 
         return view('Products.editproduct',['product'=>$product,'categories'=>$categories]);
 
     }
 
-    public function updateProduct($id){
+    public function updateProduct(Request $request,$id){
         $product=Product::find($id);
-        $product->update();
+        $product->update($request->all());
         return redirect('/product');
 
     }

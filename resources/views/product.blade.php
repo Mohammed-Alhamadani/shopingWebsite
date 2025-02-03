@@ -24,8 +24,8 @@
                         </div>
                         <h3>{{$item ->name}}</h3>
                         <span class="badge badge-danger">{{ $item->category->name }}</span>
-                        <p>{{$item ->description}}</p>
                         <p class="product-price">Price {{$item ->price}}$</p>
+                        <p class="product-price"><span>Quantity</span> {{ $item->quantity }} </p>
                         <p>{{$item ->description}}</p>
                         <a href="cart.html" class="cart-btn"><i class="fas fa-shopping-cart"></i> Add to Cart</a>
                         <a href="/deleteproduct/{{ $item->id }}" class="btn btn-danger"><i class="fas fa-trash"></i>

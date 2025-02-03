@@ -85,6 +85,7 @@
                                     </ul>
                                 </li>
                                 <li><a href="contact.html">Contact</a></li>
+                                <li><a href="/reviews">Customer Reviews</a></li>
                                 <li><a href="shop.html">Shop</a>
                                     <ul class="sub-menu">
                                         <li><a href="shop.html">Shop</a></li>
@@ -122,8 +123,11 @@
                     <div class="search-bar">
                         <div class="search-bar-tablecell">
                             <h3>Search For:</h3>
-                            <input type="text" placeholder="Keywords">
-                            <button type="submit">Search <i class="fas fa-search"></i></button>
+                            <form action="/search" method="post">
+                                @csrf
+                                <input type="text" name='searchkey' placeholder="Keywords">
+                                <button type="submit">Search <i class="fas fa-search"></i></button>
+                            </form>
                         </div>
                     </div>
                 </div>
@@ -228,8 +232,8 @@
                     <div class="footer-box get-in-touch">
                         <h2 class="widget-title">Get in Touch</h2>
                         <ul>
-                            <li>34/8, East Hukupara, Gifirtok, Sadan.</li>
-                            <li>support@fruitkha.com</li>
+                            <li>Toronto, Ontario, Canada</li>
+                            <li>support@insights.com</li>
                             <li>+00 111 222 3333</li>
                         </ul>
                     </div>
@@ -241,6 +245,7 @@
                             <li><a href="index.html">Home</a></li>
                             <li><a href="/product">Product</a></li>
                             <li><a href="/category">Category</a></li>
+                            <li><a href="/reviews">Customer Reviews</a></li>
                             <li><a href="news.html">News</a></li>
                             <li><a href="contact.html">Contact</a></li>
                         </ul>
