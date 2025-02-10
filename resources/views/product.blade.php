@@ -1,11 +1,11 @@
-@extends('Layouts.master')
+@extends('Layouts.auth')
 @section('content')
 <!-- product section -->
 <div class="product-section mt-150 mb-150">
     <div class="container">
         <div class="row">
             <div class="text-center col-lg-8 offset-lg-2">
-                <div class="section-title">
+                <div class="section-title mt-100">
                     <h3><span class="orange-text">Our</span> Products</h3>
                 </div>
             </div>

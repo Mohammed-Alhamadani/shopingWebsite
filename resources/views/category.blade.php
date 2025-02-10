@@ -1,31 +1,12 @@
-@extends('Layouts.master')
+@extends('Layouts.auth')
 @section('content')
 
 
-{{-- <style>
-    .catBtn {
-        background-color: red;
-        color: white;
-        font-weight: 700;
-        text-transform: uppercase;
-        font-size: 13px;
-        border: none !important;
-        cursor: pointer;
-        padding: 15px 25px;
-        border-radius: 3px;
-        */ -webkit-transition: 0.3s;
-        -o-transition: 0.3s;
-        transition: 0.3s;
-        border-radius: 50px !important;
-        margin-left: 10px
-    }
-</style> --}}
-<!-- products -->
 <div class="product-section mt-150 mb-150">
     <div class="container">
 
         <div class="row">
-            <div class="col-md-12">
+            <div class="col-md-12 mt-100">
                 <div class="product-filters">
                     <ul>
                         <li class="active" data-filter="*">All</li>

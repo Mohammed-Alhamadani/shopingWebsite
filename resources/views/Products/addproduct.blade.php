@@ -1,4 +1,4 @@
-@extends('Layouts.master')
+@extends('Layouts.auth')
 @section('content')
 
 
@@ -29,7 +29,7 @@
     <div class="container">
         <div class="row">
             <div class="text-center col-lg-8 offset-lg-2">
-                <div class="section-title">
+                <div class="section-title mt-100">
                     <h3><span class="orange-text">Add</span> Products</h3>
                 </div>
             </div>
@@ -42,7 +42,7 @@
                 </div>
                 <div id="form_status"></div>
                 <div class="contact-form">
-                    <form method="POST" action="/storeproduct" id="fruitkha-contact">
+                    <form method="POST" action="/storeproduct" id="fruitkha-contact" enctype="multipart/form-data">
                         @csrf
                         <p>
                             <input type="text" required style="width: 100%" placeholder="Name" name="name" id="name"
@@ -86,6 +86,15 @@
                             </textarea>
                             <span class="text-danger">
                                 @error('description')
+                                {{ $message }}
+
+                                @enderror
+                            </span>
+                        </p>
+                        <p>
+                            <input type="file" name="imagepath" id="imagepath">
+                            <span class="text-danger">
+                                @error('imagepath')
                                 {{ $message }}
 
                                 @enderror

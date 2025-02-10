@@ -1,4 +1,4 @@
-@extends('Layouts.master')
+@extends('Layouts.auth')
 @section('content')
 
 
@@ -31,7 +31,7 @@
     <div class="container">
         <div class="row">
             <div class="text-center col-lg-8 offset-lg-2">
-                <div class="section-title">
+                <div class="section-title mt-100">
                     <h3><span class="orange-text">Edit</span> Products</h3>
                 </div>
             </div>
@@ -44,7 +44,7 @@
                 </div>
                 <div id="form_status"></div>
                 <div class="contact-form">
-                    <form method="POST" action="/updateproduct/{{ $product->id }}">
+                    <form method="POST" action="/updateproduct/{{ $product->id }}" enctype="multipart/form-data">
                         @csrf
                         @method('PUT')
                         <p>
@@ -98,6 +98,18 @@
 
                                 @enderror
                             </span>
+                        </p>
+                        <p>
+                            <input type="file" name="imagepath" id="imagepath">
+                            <span class="text-danger">
+                                @error('imagepath')
+                                {{ $message }}
+
+                                @enderror
+                            </span>
+                        </p>
+                        <p>
+                            <img src="{{ asset($product->imagepath) }}" alt="Product Image">
                         </p>
                         <p><input type="submit" value="Update"><button
                                 onclick="window.location.href='/'">Cancel</button>
