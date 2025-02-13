@@ -30,8 +30,15 @@
                                     </td>
                                     <td class="product-name">{{ $item->product->name }}</td>
                                     <td class="product-price">{{ $item->product->price }}$</td>
-                                    <td class="product-quantity"><input type="number" placeholder="0"
-                                            value="{{ $item->quantity }}"></td>
+                                    <td class="product-quantity">
+                                        <form action="{{ route('update.cart.quantity') }}" method="POST">
+                                            @csrf
+                                            <input type="number" name="quantity" placeholder="0"
+                                                value="{{ $item->quantity }}">
+                                            <input type="hidden" name="cart_item_id" value="{{ $item->id }}">
+                                            <button type="submit">Update Quantity</button>
+                                        </form>
+                                    </td>
                                     <td class="product-total">{{ $item->quantity * $item->product->price }}$</td>
                                 </tr>
                                 @endforeach

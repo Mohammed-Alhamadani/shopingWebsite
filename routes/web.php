@@ -66,3 +66,5 @@ Route::get('/cart',[CartController::class,'show'])->middleware('auth');
 Route::get('addproducttocart/{productId}',[CartController::class,'addproducttocart'])->middleware('auth');
 
 Route::get('/deletecartitem/{itemId}',[CartController::class,'destroy']);
+
+Route::post('/update-cart-quantity', [CartController::class, 'updateQuantity'])->name('update.cart.quantity');

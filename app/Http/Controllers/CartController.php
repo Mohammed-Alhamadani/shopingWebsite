@@ -52,4 +52,12 @@ public function destroy($id){
 
 }
 
+public function updateQuantity(Request $request)
+{
+    $cartItem = Cart::find($request->cart_item_id);
+    $cartItem->quantity = $request->quantity;
+    $cartItem->save();
+    return redirect()->back()->with('success', 'Quantity updated successfully!');
+}
+
 }
