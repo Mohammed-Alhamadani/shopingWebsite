@@ -1,7 +1,9 @@
 <?php
 
+use App\Http\Controllers\CartController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ProductController;
+use App\Models\Cart;
 use App\Models\Category;
 use App\Models\Product;
 use Illuminate\Support\Facades\Route;
@@ -47,9 +49,20 @@ Route::post('/search', function(Request $request) {
         ->orWhereHas('category', function($query) use ($searchKey) {
             $query->where('name', 'like', '%' . $searchKey . '%');
         })
-        ->get();
+        ->paginate(12);
 
     return view('product', ['products' => $products]);
 });
 
 
+
+Route::get('/productstable',[ProductController::class,'ProductsTable']);
+
+
+// Cart
+
+Route::get('/cart',[CartController::class,'show'])->middleware('auth');
+
+Route::get('addproducttocart/{productId}',[CartController::class,'addproducttocart'])->middleware('auth');
+
+Route::get('/deletecartitem/{itemId}',[CartController::class,'destroy']);

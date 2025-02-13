@@ -48,7 +48,7 @@
 
     <!-- header -->
     <div class="top-header-area" id="sticker">
-        <div class="container">
+        <div class="container" style="max-width: 1350px;">
             <div class="row">
                 <div class="text-center col-lg-12 col-sm-12">
                     <div class="main-menu-wrap">
@@ -69,6 +69,7 @@
                                 <li><a href="{{asset ('/category') }}">Category</a></li>
                                 <li><a href="{{asset ('/product') }}">Product</a></li>
                                 <li><a href="{{asset ('/addproduct') }}">Add Product</a></li>
+                                <li><a href="{{asset ('/productstable') }}">Products Table</a></li>
 
                                 <!-- Authentication Links -->
                                 @guest
@@ -106,14 +107,11 @@
 
                                 <li>
                                     <div class="header-icons">
-                                        <a class="shopping-cart" href="cart.html"><i
-                                                class="fas fa-shopping-cart"></i></a>
+                                        <a class="shopping-cart" href="/cart"><i class="fas fa-shopping-cart"></i></a>
                                         <a class="mobile-hide search-bar-icon" href="#"><i
                                                 class="fas fa-search"></i></a>
-
                                     </div>
                                 </li>
-
                             </ul>
 
 
@@ -167,7 +165,7 @@
                                 <p class="subtitle">Fresh & Organic</p>
                                 <h1>Delicious Seasonal Fruits</h1>
                                 <div class="hero-btns">
-                                    <a href="shop.html" class="boxed-btn">Fruit Collection</a>
+                                    <a href="/category" class="boxed-btn">Fruit Collection</a>
                                     <a href="contact.html" class="bordered-btn">Contact Us</a>
                                 </div>
                             </div>
@@ -186,7 +184,7 @@
                                 <p class="subtitle">Fresh Everyday</p>
                                 <h1>100% Organic Collection</h1>
                                 <div class="hero-btns">
-                                    <a href="shop.html" class="boxed-btn">Visit Shop</a>
+                                    <a href="/" class="boxed-btn">Visit Shop</a>
                                     <a href="contact.html" class="bordered-btn">Contact Us</a>
                                 </div>
                             </div>
@@ -243,8 +241,9 @@
                 <div class="col-lg-3 col-md-6">
                     <div class="footer-box about-widget">
                         <h2 class="widget-title">About us</h2>
-                        <p>Ut enim ad minim veniam perspiciatis unde omnis iste natus error sit voluptatem accusantium
-                            doloremque laudantium, totam rem aperiam, eaque ipsa quae.</p>
+                        <p>Welcome to Green Farm, your one-stop-shop for fresh and high-quality fruits and
+                            vegetables. We're passionate about providing our customers with the best online shopping
+                            experience, delivering the freshest produce right to their doorstep.</p>
                     </div>
                 </div>
                 <div class="col-lg-3 col-md-6">
@@ -252,8 +251,8 @@
                         <h2 class="widget-title">Get in Touch</h2>
                         <ul>
                             <li>Toronto, Ontario, Canada</li>
-                            <li>support@insights.com</li>
-                            <li>+00 111 222 3333</li>
+                            <li>support@greenfarm.com</li>
+                            <li>+01 111 222 3333</li>
                         </ul>
                     </div>
                 </div>
@@ -264,8 +263,6 @@
                             <li><a href="/">Home</a></li>
                             <li><a href="/product">Product</a></li>
                             <li><a href="/category">Category</a></li>
-                            <li><a href="/reviews">Customer Reviews</a></li>
-                            <li><a href="news.html">News</a></li>
                             <li><a href="contact.html">Contact</a></li>
                         </ul>
                     </div>

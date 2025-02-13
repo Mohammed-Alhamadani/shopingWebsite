@@ -53,11 +53,26 @@
             <div class="text-center col-lg-12">
                 <div class="pagination-wrap">
                     <ul>
-                        <li><a href="#">Prev</a></li>
-                        <li><a href="#">1</a></li>
-                        <li><a class="active" href="#">2</a></li>
-                        <li><a href="#">3</a></li>
-                        <li><a href="#">Next</a></li>
+                        {{-- Prev Button --}}
+                        @if ($products->onFirstPage())
+                        <li class="disabled"><a href="#">Prev</a></li>
+                        @else
+                        <li><a href="{{ $products->previousPageUrl() }}">Prev</a></li>
+                        @endif
+
+                        {{-- Loop through pages --}}
+                        @for ($i = 1; $i <= $products->lastPage(); $i++)
+                            <li class="{{ $i == $products->currentPage() ? 'active' : '' }}">
+                                <a href="{{ $products->url($i) }}">{{ $i }}</a>
+                            </li>
+                            @endfor
+
+                            {{-- Next Button --}}
+                            @if ($products->hasMorePages())
+                            <li><a href="{{ $products->nextPageUrl() }}">Next</a></li>
+                            @else
+                            <li class="disabled"><a href="#">Next</a></li>
+                            @endif
                     </ul>
                 </div>
             </div>

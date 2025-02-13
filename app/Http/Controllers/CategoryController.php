@@ -17,19 +17,19 @@ class CategoryController extends Controller
     public function show ($catId=null) {
 
         if($catId) {
-            $result= Product::where('category_id',$catId)->get();
-            return view('product',['products'=>$result]);
+            $products= Product::where('category_id',$catId)->paginate(10);
+            return view('product',['products'=>$products]);
         }
         else{
 
-            $result= Product::all();
-            return view('product',['products'=>$result]);
+            $product= Product::paginate(10);
+            return view('product',['products'=>$product]);
         }
     }
 
     public function GetAllCategories () {
         $categories= Category::all();
-        $product= Product::all();
+        $product= Product::paginate(10);
         return view('category',['products'=>$product,'categories'=>$categories]);
     }
 
