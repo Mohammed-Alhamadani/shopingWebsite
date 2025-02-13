@@ -36,7 +36,7 @@
                                             <input type="number" name="quantity" placeholder="0"
                                                 value="{{ $item->quantity }}">
                                             <input type="hidden" name="cart_item_id" value="{{ $item->id }}">
-                                            <button type="submit">Update Quantity</button>
+                                            <button type="submit" class="boxed-btn black">Update Quantity</button>
                                         </form>
                                     </td>
                                     <td class="product-total">{{ $item->quantity * $item->product->price }}$</td>
