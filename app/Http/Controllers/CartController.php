@@ -60,4 +60,13 @@ public function updateQuantity(Request $request)
     return redirect()->back()->with('success', 'Quantity updated successfully!');
 }
 
+
+public function CompleteOrder(){
+
+    $cart = Cart::where('user_id', Auth::id())->with('product')->get();
+
+    return view('Products.completedorder',['cart'=>$cart]);
+
+}
+
 }

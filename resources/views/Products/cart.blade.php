@@ -28,7 +28,10 @@
                                     <td class="product-image"><img src="{{ asset($item->product->imagepath) }}"
                                             alt="{{ $item->name }}">
                                     </td>
-                                    <td class="product-name">{{ $item->product->name }}</td>
+
+                                    <td class="product-name"><a href="/singleproduct/{{ $item->product->id}}">{{
+                                            $item->product->name }}</a></td>
+
                                     <td class="product-price">{{ $item->product->price }}$</td>
                                     <td class="product-quantity">
                                         <form action="{{ route('update.cart.quantity') }}" method="POST">
@@ -36,7 +39,7 @@
                                             <input type="number" name="quantity" placeholder="0"
                                                 value="{{ $item->quantity }}">
                                             <input type="hidden" name="cart_item_id" value="{{ $item->id }}">
-                                            <button type="submit" class="boxed-btn black">Update Quantity</button>
+                                            <button type="submit">Update Quantity</button>
                                         </form>
                                     </td>
                                     <td class="product-total">{{ $item->quantity * $item->product->price }}$</td>
@@ -65,7 +68,7 @@
                             </tbody>
                         </table>
                         <div class="cart-buttons">
-                            <a href="checkout.html" class="boxed-btn black">Check Out</a>
+                            <a href="/completeorder" class="boxed-btn black">Check Out</a>
                         </div>
                     </div>
 

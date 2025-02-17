@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Category;
 use App\Models\Product;
+use App\Models\ProductImage;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Storage;
@@ -53,6 +54,23 @@ class ProductController extends Controller
         $newProduct->imagepath = $imagePath;
         $newProduct->save();
         return redirect('/productstable');
+    }
+
+
+    public function StoreProductImage(Request $request)
+    {
+        $request->validate([
+            'id' => 'required',
+            'imagepath' => 'image|mimes:jpeg,png,jpg,gif,avif|max:2048',
+        ]);
+
+        $newProduct = new ProductImage();
+        $newProduct->product_id = $request->id;
+        $productId=$request->id;
+        $imagePath = $request->imagepath->move('uploads', Str::uuid()->toString() . '-' . $request->file('imagepath')->getClientOriginalName());
+        $newProduct->imagepath = $imagePath;
+        $newProduct->save();
+        return redirect("/AddProductImages/$productId");
     }
 
     public function show($catId = null)
@@ -126,7 +144,16 @@ class ProductController extends Controller
     public function showSingleProduct($id)
     {
         $SingleProduct = Product::find($id);
-        return view('Products.singlePage', ['singleProduct' => $SingleProduct]);
+
+        // if (!$SingleProduct) {
+        //     return redirect()->to('/product')->with('error', 'Product not found');
+        // }
+
+        $relatedProducts=Product::where('category_id',$SingleProduct->category_id)->where('id','!=',$id)
+        ->inRandomOrder()
+        ->limit(3)
+        ->get();
+        return view('Products.singlePage', ['singleProduct' => $SingleProduct,'relatedProducts'=>$relatedProducts]);
     }
 
     public function ProductsTable()
@@ -143,5 +170,39 @@ class ProductController extends Controller
         } else {
             return redirect()->route('login');
         }
+    }
+
+    public function AddProductImages($productId)
+    {
+        // Fetch the product by ID
+        $product = Product::find($productId);
+
+        // Handle the case when the product is not found
+        if (!$product) {
+            return redirect()->to('/product')->with('error', 'Product not found');
+        }
+
+        // Retrieve product images (assuming there's a relationship for images)
+        $productImages = $product->productImages;
+
+        // Return the view with product and images
+        return view('Products.AddProductImage',['product'=>$product, 'productImages'=>$productImages]);
+    }
+
+
+
+    public function DeleteProductImage($id=null){
+
+        if($id!= null){
+
+            $currentImage=ProductImage::find($id);
+            $productId = $currentImage->product_id;
+            $currentImage->delete();
+            return redirect("AddProductImages/$productId");
+        }else{
+            abort(403,"Please enter image id in the route");
+        }
+
+
     }
 }

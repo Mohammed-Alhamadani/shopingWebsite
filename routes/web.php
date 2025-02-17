@@ -38,6 +38,7 @@ Route::PUT('/updateproduct/{id}',[ProductController::class,'updateProduct']);
 //Add & Store Products
 Route::get('/addproduct',[ProductController::class,'AddProduct']);
 Route::post('/storeproduct',[ProductController::class,'storeProduct']);
+Route::post('/storeProductImage',[ProductController::class,'StoreProductImage']);
 
 
 // search route
@@ -58,13 +59,19 @@ Route::post('/search', function(Request $request) {
 
 Route::get('/productstable',[ProductController::class,'ProductsTable']);
 
+Route::get('/AddProductImages/{productId}',[ProductController::class,'AddProductImages']);
+
 
 // Cart
 
 Route::get('/cart',[CartController::class,'show'])->middleware('auth');
 
+// CheckOut
+Route::get('/completeorder',[CartController::class,'CompleteOrder'])->middleware('auth');
+
 Route::get('addproducttocart/{productId}',[CartController::class,'addproducttocart'])->middleware('auth');
 
 Route::get('/deletecartitem/{itemId}',[CartController::class,'destroy']);
+Route::get('/deleteproductImage/{id}',[ProductController::class,'DeleteProductImage']);
 
 Route::post('/update-cart-quantity', [CartController::class, 'updateQuantity'])->name('update.cart.quantity');

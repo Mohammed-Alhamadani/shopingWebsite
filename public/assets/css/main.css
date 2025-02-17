@@ -2052,7 +2052,7 @@ span.comment-date {
     margin-top: 10px;
     color: #051922;
     font-weight: 600;
-    opacity: 0.5;
+    /* opacity: 0.5; */
 }
 
 p.testimonial-body {

@@ -10,7 +10,7 @@
 
 
 <div class="product-section mt-150 mb-150">
-    <div class="container mt-5 mb-5">
+    <div class="container mt-5 mb-5" style="max-width: 1500px;">
 
         <a href="/addproduct/" class="btn btn-primary"><i class="fas fa-plus"></i>
             Add Product</a>
@@ -37,12 +37,14 @@
                     <td>{{ $item->price }}</td>
                     <td>{{ $item->quantity }}</td>
                     <td>{{ $item->category->name }}</td>
-                    <td> <img src="{{ asset($item->imagepath) }}" alt="{{ $item->name }}">
+                    <td> <img src="{{ asset($item->imagepath) }}" alt="{{ $item->name }}" width="100px" height="100px">
                     </td>
                     <td> <a href="/deleteproduct/{{ $item->id }}" class="btn btn-danger"><i class="fas fa-trash"></i>
                             Delete</a>
                         <a href="/editproduct/{{ $item->id }}" class="btn btn-primary"><i class="fas fa-edit"></i>
                             Edit</a>
+                        <a href="/AddProductImages/{{ $item->id }}" class="btn btn-warning"><i class="fas fa-image"></i>
+                            Add Image </a>
                     </td>
                 </tr>
                 @endforeach
