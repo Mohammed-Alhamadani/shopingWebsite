@@ -75,3 +75,6 @@ Route::get('/deletecartitem/{itemId}',[CartController::class,'destroy']);
 Route::get('/deleteproductImage/{id}',[ProductController::class,'DeleteProductImage']);
 
 Route::post('/update-cart-quantity', [CartController::class, 'updateQuantity'])->name('update.cart.quantity');
+
+// Store Order(checkout)
+Route::post('/StoreOrder', [CartController::class, 'StoreOrder']);

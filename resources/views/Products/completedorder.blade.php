@@ -22,12 +22,13 @@
                                 data-parent="#accordionExample">
                                 <div class="card-body">
                                     <div class="billing-address-form">
-                                        <form action="index.html">
+                                        <form action="/StoreOrder" method="post">
+                                            @csrf
                                             <p><input type="text" id="name" name="name" placeholder="Name"></p>
                                             <p><input type="email" id="email" name="email" placeholder="Email"></p>
                                             <p><input type="text" id="address" name="address" placeholder="Address"></p>
                                             <p><input type="tel" id="phone" name="phone" placeholder="Phone"></p>
-                                            <p><textarea name="bill" id="bill" cols="30" rows="10"
+                                            <p><textarea name="note" id="note" cols="30" rows="10"
                                                     placeholder="Say Something"></textarea></p>
                                         </form>
                                     </div>
