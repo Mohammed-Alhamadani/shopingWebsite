@@ -24,7 +24,7 @@
                                     <div class="billing-address-form">
                                         <form action="/StoreOrder" method="post">
                                             @csrf
-                                            <p><input type="text" id="name" name="name" placeholder="Name"></p>
+                                            <p><input type="text" required id="name" name="name" placeholder="Name"></p>
                                             <p><input type="email" id="email" name="email" placeholder="Email"></p>
                                             <p><input type="text" id="address" name="address" placeholder="Address"></p>
                                             <p><input type="tel" id="phone" name="phone" placeholder="Phone"></p>
