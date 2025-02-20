@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Cart;
+use App\Models\Order;
+use App\Models\orderdetails;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -69,4 +71,55 @@ public function CompleteOrder(){
 
 }
 
+
+public function StoreOrder(Request $request){
+
+    $user_id=Auth::id();
+
+    $storeOrder= new Order();
+    $storeOrder->name=$request->name;
+    $storeOrder->email=$request->email;
+    $storeOrder->phone=$request->phone;
+    $storeOrder->address=$request->address;
+    $storeOrder->note=$request->note;
+    $storeOrder->user_id=$user_id;
+
+    $storeOrder->save();
+
+
+    $cart = Cart::where('user_id', Auth::id())->with('product')->get();
+
+    foreach($cart as $item){
+
+        $storeOrderDetail= new orderdetails();
+        $storeOrderDetail->product_id= $item->product_id;
+        $storeOrderDetail->price= $item->product->price;
+        $storeOrderDetail->quantity= $item->quantity;
+        $storeOrderDetail->order_id= $storeOrder->id;
+        $storeOrderDetail->save();
+
+
+    }
+
+    // Clear the cart
+
+    Cart::where('user_id',$user_id)->delete();
+
+
+    return redirect('/');
+
 }
+
+public function OrderHistory(){
+
+    $order=Order::where('user_id',$id=Auth::id())->with('orderdetails')->get();
+
+    return view('/Products.orderhistory',compact('order'));
+
+
+}
+
+
+}
+
+

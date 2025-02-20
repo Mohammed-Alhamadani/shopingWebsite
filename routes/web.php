@@ -78,3 +78,6 @@ Route::post('/update-cart-quantity', [CartController::class, 'updateQuantity'])-
 
 // Store Order(checkout)
 Route::post('/StoreOrder', [CartController::class, 'StoreOrder']);
+
+// Order History
+Route::get('/orderhistory', [CartController::class, 'OrderHistory'])->middleware('auth');

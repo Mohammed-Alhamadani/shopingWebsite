@@ -22,33 +22,18 @@
                                 data-parent="#accordionExample">
                                 <div class="card-body">
                                     <div class="billing-address-form">
-                                        <form action="/StoreOrder" method="post">
+                                        <form action="/StoreOrder" method="post" id="store-order" name="store-order">
                                             @csrf
                                             <p><input type="text" required id="name" name="name" placeholder="Name"></p>
-                                            <p><input type="email" id="email" name="email" placeholder="Email"></p>
-                                            <p><input type="text" id="address" name="address" placeholder="Address"></p>
-                                            <p><input type="tel" id="phone" name="phone" placeholder="Phone"></p>
+                                            <p><input type="email" required id="email" name="email" placeholder="Email">
+                                            </p>
+                                            <p><input type="text" required id="address" name="address"
+                                                    placeholder="Address"></p>
+                                            <p><input type="tel" required id="phone" name="phone" placeholder="Phone">
+                                            </p>
                                             <p><textarea name="note" id="note" cols="30" rows="10"
                                                     placeholder="Say Something"></textarea></p>
                                         </form>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="card single-accordion">
-                            <div class="card-header" id="headingTwo">
-                                <h5 class="mb-0">
-                                    <button class="btn btn-link collapsed" type="button" data-toggle="collapse"
-                                        data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                                        Shipping Address
-                                    </button>
-                                </h5>
-                            </div>
-                            <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo"
-                                data-parent="#accordionExample">
-                                <div class="card-body">
-                                    <div class="shipping-address-form">
-                                        <p>Your shipping address form is here.</p>
                                     </div>
                                 </div>
                             </div>
@@ -59,7 +44,7 @@
                                     <button class="btn btn-link collapsed" type="button" data-toggle="collapse"
                                         data-target="#collapseThree" aria-expanded="false"
                                         aria-controls="collapseThree">
-                                        Card Details
+                                        Cart Details
                                     </button>
                                 </h5>
                             </div>
@@ -166,7 +151,8 @@
             </div>
             <div class="col-lg-12">
                 <div class="cart-buttons">
-                    <a href="#" class="boxed-btn">Place Order</a>
+                    <a onclick="event.preventDefault(); document.getElementById('store-order').submit();"
+                        class="boxed-btn">Place Order</a>
                 </div>
             </div>
         </div>
