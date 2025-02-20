@@ -69,7 +69,7 @@ Route::get('/cart',[CartController::class,'show'])->middleware('auth');
 // CheckOut
 Route::get('/completeorder',[CartController::class,'CompleteOrder'])->middleware('auth');
 
-Route::get('addproducttocart/{productId}',[CartController::class,'addproducttocart'])->middleware('auth');
+Route::get('/addproducttocart/{productId}',[CartController::class,'addproducttocart'])->middleware('auth');
 
 Route::get('/deletecartitem/{itemId}',[CartController::class,'destroy']);
 Route::get('/deleteproductImage/{id}',[ProductController::class,'DeleteProductImage']);

@@ -93,7 +93,7 @@
 
 
 
-                            @foreach ($singleProduct->productImages as $image)
+                            {{-- @foreach ($singleProduct->productImages as $image)
 
 
                             <div class="single-testimonial-slider">
@@ -108,7 +108,7 @@
                                     </div>
                                 </a>
                             </div>
-                            @endforeach
+                            @endforeach --}}
                         </div>
                     </div>
                 </div>
@@ -140,7 +140,7 @@
                                 <h3>{{ $item->name }}</h3>
                                 <p class="orange-text">{{ $item->category->name }}</p>
                                 <p class="product-price"><span>Per Kg</span> {{ $item->price }}$ </p>
-                                <a href="addproducttocart/{{ $item->id }}" class="cart-btn"><i
+                                <a href="/addproducttocart/{{ $item->id }}" class="cart-btn"><i
                                         class=" fas fa-shopping-cart"></i> Add to
                                     Cart</a>
                             </div>
